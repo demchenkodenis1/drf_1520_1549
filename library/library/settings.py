@@ -140,7 +140,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# from rest_framework.permissions import IsAuthenticated
+# from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
 # rest_framework
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES':[
@@ -148,7 +148,7 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
     'DEFAULT_PERMISSION_CLASSES':[
-        'rest_framework.permissions.IsAuthenticated'
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES':[
