@@ -6,8 +6,8 @@ from rest_framework.test import APIRequestFactory,force_authenticate,APIClient,A
 from mixer.backend.django import mixer
 from django.contrib.auth.models import User
 
-from authors.views import AuthorModelViewSet
-from authors.models import Author,Biography
+from authors.views import AuthorModelViewSet,BookModelViewSet
+from authors.models import Author,Biography,Book
 
 # Create your tests here.
 
@@ -93,7 +93,11 @@ class TestBiographyViewSet(APITestCase):
         self.url = '/api/biography/'
         self.admin = User.objects.create_superuser(username=self.name, password=self.password, email=self.email)
 
-
+    def test_book(self):
+        test = Book.objects.create()
+        test.authors.add(self.author.id)
+        print(test)
+        print(test)
     def test_get_list(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code,status.HTTP_200_OK)

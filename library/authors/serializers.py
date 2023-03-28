@@ -12,8 +12,12 @@ class AuthorModelSerializer(ModelSerializer):
     class Meta:
         model = Author
         fields = '__all__'
-        # exclude = ()
-        # fields = ('first_name','las',)
+
+class AuthorBaseModelSerializer(ModelSerializer):
+
+    class Meta:
+        model = Author
+        fields = ('last_name',)
 
 
 

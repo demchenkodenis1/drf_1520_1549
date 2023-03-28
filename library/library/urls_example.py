@@ -69,7 +69,7 @@ urlpatterns = [
     # path('api/detail/<int:pk>/', BookRetrieveAPIView.as_view()),
 
     # # level 3 - 5
-    # path('api/', include(router.urls)),
+    # path('api/', include(router.urls.py)),
 
     # filter part_2
     # path('api/<str:name>/', BookListAPIView.as_view()),

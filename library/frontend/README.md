@@ -1342,7 +1342,7 @@ Then run the `firebase init` command from your project’s root. You need to cho
     have a build process for your assets, use your build's output directory.
 
     ? What do you want to use as your public directory? build
-    ? Configure as a single-page app (rewrite all urls to /index.html)? Yes
+    ? Configure as a single-page app (rewrite all urls.py to /index.html)? Yes
     ✔  Wrote build/index.html
 
     i  Writing configuration info to firebase.json...

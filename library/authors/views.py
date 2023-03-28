@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAdminUser,BasePermission
 
 
 from .models import Author, Biography, Book
-from .serializers import AuthorModelSerializer, BiographyModelSerializer,BookModelSerializer
+from .serializers import AuthorModelSerializer, BiographyModelSerializer, BookModelSerializer, AuthorBaseModelSerializer
 
 
 class StaffOnly(BasePermission):
@@ -21,7 +21,12 @@ class AuthorModelViewSet(ModelViewSet):
     # renderer_classes = [AdminRenderer]
     # permission_classes = [StaffOnly]
     queryset = Author.objects.all()
-    serializer_class = AuthorModelSerializer
+    # serializer_class = AuthorModelSerializer
+
+    def get_serializer_class(self):
+        if self.request.version == 'v2':
+            return AuthorBaseModelSerializer
+        return AuthorModelSerializer
 
 class BiographyModelViewSet(ModelViewSet):
     queryset = Biography.objects.all()
